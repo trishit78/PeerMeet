@@ -1,34 +1,17 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import Home from "./Pages/Home";
+import Room from "./Pages/Room";
 
 function App() {
   return (
     <>
-      <div className="text-3xl bg-red-500">hello</div>
+    <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/room/:id" element={<Room />} />
 
-      <button className="inline-block cursor-pointer rounded-md bg-gray-800 px-4 py-3 text-center text-sm font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-gray-900">
-        Button
-      </button>
-      {/* Open the modal using document.getElementById('ID').showModal() method */}
-      <button
-        className="btn"
-        onClick={() => document.getElementById("my_modal_1").showModal()}
-      >
-        open modal
-      </button>
-      <dialog id="my_modal_1" className="modal">
-        <div className="modal-box">
-          <h3 className="font-bold text-lg">Hello!</h3>
-          <p className="py-4">
-            Press ESC key or click the button below to close
-          </p>
-          <div className="modal-action">
-            <form method="dialog">
-              {/* if there is a button in form, it will close the modal */}
-              <button className="btn">Close</button>
-            </form>
-          </div>
-        </div>
-      </dialog>
+        
+    </Routes>
     </>
   );
 }
