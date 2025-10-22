@@ -26,6 +26,9 @@ const roomHandler = (socket:Socket)=>{
             rooms[roomId].push(peerId);
             socket.join(roomId);
         
+            socket.on("ready",()=>{
+                socket.to(roomId).emit("user-joined",{peerId});
+            })
         
           socket.emit('get-users',{
             roomId,
